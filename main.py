@@ -1,20 +1,19 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 import asyncio
 import io
 import os
 
 from PIL import Image
-from websockets import connect
-from dotenv import load_dotenv
 
-from differencing import get_pixel_differences
-from network import upload
+from client import PlaceClient
+from constants import Environment
+
 
 # Start a websocket
 # In the initial image load, detect all changes between the target and
-
-load_dotenv()
-
-width, height = int(os.getenv("CANVAS_WIDTH")), int(os.getenv("CANVAS_HEIGHT"))
 
 
 async def get_image(websocket):
@@ -25,26 +24,22 @@ async def get_image(websocket):
 
 
 async def main():
-    source_path = os.getenv("SOUCE_FILE")
+    # Grab the image we want to setup
+    width, height = int(os.getenv(Environment.CANVAS_HEIGHT)), int(os.getenv(Environment.CANVAS_HEIGHT))
+    original_image = Image.open(os.getenv(Environment.SOURCE_FILE))
+    original_image = original_image.resize((width, height), Image.LANCZOS)
 
-    async with connect(os.getenv("WEBSOCKET_ADDRESS")) as websocket:
-        while True:
-            print(websocket.messages)
+    # Start connection and get client connection protocol
+    client = await PlaceClient.connect(os.getenv(Environment.WEBSOCKET_ADDRESS))
+    client.current_target = original_image
+    asyncio.create_task(client.receive())
 
-            original_image = Image.open(source_path)
-            original_image = original_image.resize((width, height), Image.LANCZOS)
+    # await asyncio.sleep(2)
+    await client.complete(5)
 
-            source = await get_image(websocket)
-            ips = get_pixel_differences(source, original_image)
+    print('Complete.')
 
-            upload(ips)
-
-            if len(ips) < 5:
-                break
-
-            original_image.close()
-
-            break
+    return
 
 
 if __name__ == "__main__":
