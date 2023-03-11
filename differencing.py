@@ -1,20 +1,13 @@
-from typing import List, Tuple
-from pixel_types import RGB
+import os
+from typing import List
+
 from PIL import Image
 
-
-def overlay_transparent(source: Image, layer: Image, differences: bool = False) -> List[Tuple[int, int]]:
-    """
-    Given an image, it wil be modified in-place to layer a (potentially transparent) Image on top.
-
-    :param source: The source image to be modified.
-    :param layer:  The layer to implant upon it.
-    :return: If specified, a list of tuples indicating pixel locations will be returned.
-    """
-    return []
+from constants import Environment
+from pixel_types import Pixel
 
 
-def get_pixel_differences(source: Image, target: Image) -> List[Tuple[int, int, RGB]]:
+def get_pixel_differences(source: Image, target: Image) -> List[Pixel]:
     """
     Returns a list of pixels (location & color) that must be changed to match `source` to `target`.
 
@@ -22,9 +15,9 @@ def get_pixel_differences(source: Image, target: Image) -> List[Tuple[int, int, 
     :param target: The target image (what we want to have).
     :return: A list of pixels in tuples.
     """
+    width, height = int(os.getenv(Environment.CANVAS_HEIGHT)), int(os.getenv(Environment.CANVAS_HEIGHT))
     source_pixels = source.load()
     target_pixels = target.load()
-    height, width = source.shape
     results = []
 
     for y in range(width):
