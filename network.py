@@ -9,6 +9,15 @@ maximum_chunk = (2 ** 16) - 1
 
 
 def get_ip(x: int, y: int, rgb: Tuple[int, int, int], large: bool = False):
+    """
+    Build the destination IP address given the constants. Arguments are not tested for validity.
+
+    :param x: The X coordinate as an integer. [0, 512]
+    :param y: The Y coordinate as an integer. [0, 512]
+    :param rgb: The RGB of each pixel described by a tuple of integers. [0, 255]
+    :param large: If true, will place 2x2 pixels instead. Defaults to False.
+    :return: The IPv6 address as a string.
+    """
     return f"2a06:a003:d040:{'2' if large else '1'}{x:03X}:{y:03X}:{rgb[0]:02X}:{rgb[1]:02X}:{rgb[2]:02X}"
 
 
