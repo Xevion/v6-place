@@ -1,10 +1,14 @@
 import os
-from typing import List
+from typing import List, Union
 
 from PIL import Image
 
 from constants import Environment
-from pixel_types import Pixel
+from pixel_types import Pixel, AlphaPixel
+
+
+def is_pixel_equal(a: Union[Pixel, AlphaPixel], b: Union[Pixel, AlphaPixel]) -> bool:
+    return a[0] == b[0] and a[1] == b[1] and a[2] == b[2]
 
 
 def get_pixel_differences(source: Image, target: Image) -> List[Pixel]:
@@ -24,7 +28,7 @@ def get_pixel_differences(source: Image, target: Image) -> List[Pixel]:
         for x in range(height):
             cur_pixel = source_pixels[x, y]
             target_pixel = target_pixels[x, y]
-            if cur_pixel != target_pixel:
+            if not is_pixel_equal(cur_pixel, target_pixel):
                 results.append((x, y, target_pixel))
 
     return results
