@@ -1,11 +1,15 @@
 # v6-place
 
-<div style="text-align: center; margin: 0 auto;">
-  <img src="https://i.xevion.dev/2023/03/firefox_UMf1xj8hrL.png"
-alt="Place IPv6 Screenshot">
-  </img>
-<small>Proof that I am talented at writing wonderfully awful software.</small>
+<div align="center">
+  <a href="https://v6.sys42.net">
+    <img src="https://i.xevion.dev/2023/03/firefox_UMf1xj8hrL.png"
+    alt="Place IPv6 Screenshot">
+      </img>
+  </a>
+<br />
+<sub>Proof that I am talented at writing wonderfully awful software.</sub>
 </div>
+<br />
 
 I found a neat website called [**Place: IPv6**](https://v6.sys42.net/) and found the idea really cool.
 
