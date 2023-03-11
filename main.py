@@ -1,8 +1,10 @@
 import asyncio
 import io
+import os
 
 from PIL import Image
 from websockets import connect
+from dotenv import load_dotenv
 
 from differencing import get_pixel_differences
 from network import upload
@@ -10,7 +12,9 @@ from network import upload
 # Start a websocket
 # In the initial image load, detect all changes between the target and
 
-width, height = 512, 512
+load_dotenv()
+
+width, height = int(os.getenv("CANVAS_WIDTH")), int(os.getenv("CANVAS_HEIGHT"))
 
 
 async def get_image(websocket):
@@ -21,9 +25,9 @@ async def get_image(websocket):
 
 
 async def main():
-    source_path = "C:\\Users\\Xevion\\Documents\\ShareX\\Screenshots\\2023-03\\firefox_c60J4nQj77.png"
+    source_path = os.getenv("SOUCE_FILE")
 
-    async with connect("wss://v6.sys42.net/ws") as websocket:
+    async with connect(os.getenv("WEBSOCKET_ADDRESS")) as websocket:
         while True:
             print(websocket.messages)
 
