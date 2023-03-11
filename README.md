@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://v6.sys42.net">
-    <img src="https://i.xevion.dev/2023/03/firefox_UMf1xj8hrL.png"
+    <img src="https://i.xevion.dev/2023/03/firefox_UMf1xj8hrL.png" width="512"
     alt="Place IPv6 Screenshot">
       </img>
   </a>
@@ -13,10 +13,10 @@
 
 I found a neat website called [**Place: IPv6**](https://v6.sys42.net/) and found the idea really cool.
 
-If you've ever heard of /r/place, you'll remember that you can place pixels on a globally-synchronized
-canvas, creating any sort of image you want.
+If you've ever heard of /r/place, you'll remember that you can place pixels on a globally-synchronized canvas, creating any sort of image you want. There is absolutely
+no restriction on creativity, allowing both good and bad.
 
-Instead of having a user-controllable interface or an HTTP API, this website relies on IPv6 addresses to place pixels on the canvas.
+However, instead of having a user-controllable interface or an HTTP API, this website relies on IPv6 addresses to place pixels on the canvas.
 
 This repository is a custom "library" built to do just that - paint on the canvas.
 
@@ -94,7 +94,6 @@ customized, at least a little bit.
     - Instead of completing the entire layer of packets & recalculating what is next, one could process
     PART of the transition, slowly revealing parts of the image in 'layers'.
     - Each layer or group would be targeted, resolved (all pixels would be fully checked as 'written') in order.
-
 - Add a CLI frontend
   - Currently, the entire app is controlled via environment variables & changing the code.
   This is horrible for any 'normal' user.
