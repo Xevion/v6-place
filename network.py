@@ -1,7 +1,7 @@
 from typing import Generator, Any, List, Tuple
 
 from multiping import multi_ping
-
+from progressbar import progressbar
 from pixel_types import Pixel
 
 # The largest possible chunk that can be given to Multiping
@@ -43,7 +43,7 @@ def upload(ips: List[str], chunk_size: int = None):
     # Default to maximum chunk size
     if chunk_size is None: chunk_size = maximum_chunk
 
+    # random.shuffle(ips)
     chunked = list(chunkify(ips, min(maximum_chunk, chunk_size)))
-    for i, chunk in enumerate(chunked, start=1):
-        print(f'Chunk {i}/{len(chunked)}')
-        multi_ping(chunk, timeout=0.2, retry=0)
+    for i, chunk in progressbar(list(enumerate(chunked, start=1))):
+        multi_ping(chunk, timeout=0.1, retry=0)

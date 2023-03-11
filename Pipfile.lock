@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ccef10c99ccde2850597144b704849fcf19f79b971452ec2852a364ff77499f7"
+            "sha256": "ca70896409e8bb458353718d1d9d4dbca1c65365fb9e11a122532b908082895a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -109,6 +109,14 @@
             "index": "pypi",
             "version": "==9.4.0"
         },
+        "progressbar2": {
+            "hashes": [
+                "sha256:1393922fcb64598944ad457569fbeb4b3ac189ef50b5adb9cef3284e87e394ce",
+                "sha256:1a8e201211f99a85df55f720b3b6da7fb5c8cdef56792c4547205be2de5ea606"
+            ],
+            "index": "pypi",
+            "version": "==4.2.0"
+        },
         "python-dotenv": {
             "hashes": [
                 "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba",
@@ -116,6 +124,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.0"
+        },
+        "python-utils": {
+            "hashes": [
+                "sha256:68198854fc276bc4b2403b261703c218e01ef564dcb072a7096ed9ea7aa5130c",
+                "sha256:8bfefc3430f1c48408fa0e5958eee51d39840a5a987c2181a579e99ab6fe5ca6"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.5.2"
         },
         "websockets": {
             "hashes": [

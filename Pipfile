@@ -8,6 +8,7 @@ multiping = "*"
 pillow = "*"
 websockets = "*"
 python-dotenv = "*"
+progressbar2 = "*"
 
 [dev-packages]
 
