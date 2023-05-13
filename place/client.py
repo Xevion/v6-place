@@ -6,10 +6,10 @@ from typing import Optional, List, Union
 import websockets
 from PIL import Image
 
-from constants import Environment
-from differencing import get_pixel_differences
-from network import upload_pixels
-from pixel_types import Pixel
+from place.constants import Environment
+from place.differencing import get_pixel_differences
+from place.network import upload_pixels
+from place.pixel_types import Pixel
 
 width, height = int(os.getenv(Environment.CANVAS_HEIGHT)), int(os.getenv(Environment.CANVAS_HEIGHT))
 total_pixels = width * height

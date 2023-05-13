@@ -8,8 +8,8 @@ import os
 
 from PIL import Image
 
-from client import PlaceClient
-from constants import Environment
+from place.client import PlaceClient
+from place.constants import Environment
 
 
 # Start a websocket
@@ -34,9 +34,11 @@ async def main():
     client.current_target = original_image
     asyncio.create_task(client.receive())
 
-    # await asyncio.sleep(2)
-    await client.complete(5)
-
+    await asyncio.sleep(0.8)
+    async with client.lock():
+        client.source.save("./x.png")
+        client.current_target.save("./target.png")
+    await client.complete(1)
     print('Complete.')
 
     return

@@ -3,8 +3,8 @@ from typing import List, Union
 
 from PIL import Image
 
-from constants import Environment
-from pixel_types import Pixel, AlphaPixel
+from place.constants import Environment
+from place.pixel_types import Pixel, AlphaPixel
 
 
 def is_pixel_equal(a: Union[Pixel, AlphaPixel], b: Union[Pixel, AlphaPixel]) -> bool:

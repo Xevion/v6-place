@@ -2,7 +2,7 @@ from typing import Generator, Any, List, Tuple
 
 from multiping import multi_ping
 from progressbar import progressbar
-from pixel_types import Pixel
+from place.pixel_types import Pixel
 
 # The largest possible chunk that can be given to Multiping
 maximum_chunk = (2 ** 16) - 1
