@@ -69,6 +69,9 @@ So, as it stands now, the issue is solved by being efficient (only targeting pix
 
 This was just a small one-day project to mess around with the site, but in the case that it grabs someone's attention,
 or if I really want to work on it in the future, here are some improvements to try for:
+- Deploying on Gigabit cloud servers
+  - I never thought about it, but hosting the processor online would allow much faster network speeds. This would move the
+  bottleneck from processing & error handling to network speed - why bother with careful optimization of packets and pixels when you can just paint the entire image in seconds?
 - Use numpy, CPython or some kind of compiled processing libraries to speed up the processing.
   - I have very little practice in this space, so getting some would definitely be fun to learn!
 - Optimize transfers using 2x2 pixels
